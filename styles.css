@@ -1,0 +1,148 @@
+/* Global styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #292929;
+    color: white;
+}
+
+/* Remove outline on input focus */
+input:focus {
+    outline: none;
+}
+
+/* Center-align heading */
+h1 {
+    text-align: center;
+}
+
+/* Center container and limit its width */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    background-color: #1e3146;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+/* Button styling for 'Add Employee' button */
+.btn-AddEmployee {
+    padding: 5px;
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffa31a;
+    cursor: pointer;
+    height: 30px;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for input fields within popups */
+.popup input {
+    margin-top: 3px;
+    border-radius: 5px;
+    border: none;
+    height: 23px;
+    width: 100%;
+}
+
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    border-radius: 5px;
+    box-shadow: 0 0 5px white;
+    padding: 20px;
+    /* background-color: rgb(20, 15, 15); */
+    background-color: #1b1b1b;
+
+    margin: auto;
+}
+
+/* Additional spacing for popup elements */
+.popup div {
+    margin-bottom: 15px;
+}
+
+/* Overlay styling */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+/* Close button styling */
+.close {
+    float: right;
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+/* Toast message styling */
+.toast {
+    color: white;
+    padding: 16px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: none;
+}
+
+/* Animation for toast message */
+.toast.show {
+    display: block;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Fade in animation */
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+/* Fade out animation */
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}

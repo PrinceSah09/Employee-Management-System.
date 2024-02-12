@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Page title -->
+    <h1>Employee Management System</h1>
+
+    <!-- Buttons for adding and viewing employees -->
+    <div class="container">
+        <button class="btn" onclick="togglePopup('addEmployeePopup')">
+            Add Employee
+        </button>
+        <button class="btn" onclick="viewEmployees()">View Employees</button>
+    </div>
+
+    <!-- Add Employee Popup -->
+    <div id="addEmployeePopup" class="popup">
+        <!-- Close button for the popup -->
+        <span class="close" onclick="togglePopup('addEmployeePopup')">&times;</span>
+        <!-- Popup title -->
+        <h2>Add Employee Detail</h2>
+
+        <!-- Form fields for adding a new employee -->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" />
+        </div>
+        <div>
+            <label for="employeeId">Employee ID:</label>
+            <input type="text" id="employeeId" />
+        </div>
+        <div>
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation" />
+        </div>
+        <!-- Button to add the employee -->
+        <button class="btn-AddEmployee" onclick="addEmployee()">Add Employee</button>
+    </div>
+
+    <!-- Edit Employee Popup -->
+    <div id="editEmployeePopup" class="popup">
+        <!-- Close button for the popup -->
+        <span class="close" onclick="togglePopup('editEmployeePopup')">&times;</span>
+        <!-- Popup title -->
+        <h2>Edit Employee Detail</h2>
+
+        <!-- Form fields for editing an existing employee -->
+        <div>
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" />
+        </div>
+        <div>
+            <label for="editAddress">Address:</label>
+            <input type="text" id="editAddress" />
+        </div>
+        <div>
+            <label for="editEmployeeId">Employee ID:</label>
+            <input type="text" id="editEmployeeId" />
+        </div>
+        <div>
+            <label for="editDesignation">Designation:</label>
+            <input type="text" id="editDesignation" />
+        </div>
+        <!-- Button to save the edited employee details -->
+        <button class="btn-AddEmployee" onclick="saveEditedEmployee()">Save Changes</button>
+    </div>
+
+    <!-- View Employee Popup -->
+    <div id="viewEmployeePopup" class="popup">
+        <!-- Close button for the popup -->
+        <span class="close" onclick="togglePopup('viewEmployeePopup')">&times;</span>
+        <!-- Popup title -->
+        <h2>View All Employee Details</h2>
+        <!-- List to display all employee details -->
+        <ul id="employeeList"></ul>
+    </div>
+
+    <!-- Overlay to close popups -->
+    <div class="overlay" onclick="closePopups()"></div>
+    <!-- Toast message display -->
+    <div id="toast" class="toast"></div>
+
+    <!--  Link to external JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
