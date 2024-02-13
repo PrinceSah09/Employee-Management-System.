@@ -7,6 +7,7 @@ body {
     color: white;
 }
 
+
 /* Remove outline on input focus */
 input:focus {
     outline: none;
@@ -45,7 +46,7 @@ h1 {
     padding: 5px;
     font-weight: 900;
     cursor: pointer;
-    margin-left: 10px;
+    margin: 9px;
 }
 
 /* Button styling for 'Add Employee' button */
@@ -95,7 +96,7 @@ h1 {
 
 
 #viewEmployeePopup {
-    width: 600px;
+    width: 800px;
 }
 
 #viewEmployeePopup p {
@@ -186,7 +187,7 @@ h1 {
     }
 
     .container {
-        max-width: 100%; 
+        max-width: 100%;
     }
 
     .popup {
@@ -202,7 +203,7 @@ h1 {
 /* Media query for screens between 768px and 1024px (typical tablets) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .container {
-        max-width: 90%; 
+        max-width: 90%;
     }
 }
 
