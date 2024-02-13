@@ -104,6 +104,9 @@ h1 {
     /* Set the width of the popup */
     text-align: center;
     /* Center-align text within the popup */
+    height: 60%;
+    margin-top: 50px;
+    overflow: auto;
 }
 
 /* Styling for the headers in the View Employee Popup and Add Employee Popup */
@@ -116,7 +119,6 @@ h1 {
     color: #ff8100;
     /* Text color for the header */
     border-radius: 5px;
-    /* Border radius to round the corners of the header */
 }
 
 /* Additional styling specific to the Add Employee Popup header */
@@ -202,6 +204,12 @@ h1 {
 
 #employeeTable button:hover {
     background-color: #ff8100;
+}
+
+#employeeTable {
+    overflow-x: auto;  /* Add horizontal scrollbar when needed */
+    max-width: 100%; /* Set a maximum width for the table */
+    table-layout: fixed; /* Ensure the table has a fixed layout */
 }
 
 /* Toast message styling */
