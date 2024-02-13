@@ -8,6 +8,7 @@ class Employee {
         this.designation = designation; // Job designation of the employee
     }
 }
+
 let employees = []; // Array to store employee objects
 let editingIndex = null; // Keep track of the index of the employee being edited
 
@@ -31,16 +32,13 @@ function handleEdge(name, address, employeeId, designation) {
 
 // Function to add employee details
 function addEmployee() {
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let employeeId = document.getElementById('employeeId').value;
-    let designation = document.getElementById('designation').value;
-
+    let name = document.getElementById('name').value.trim();
+    let address = document.getElementById('address').value.trim();
+    let employeeId = document.getElementById('employeeId').value.trim();
+    let designation = document.getElementById('designation').value.trim();
 
     //handle Edge-Case 
-    if (handleEdge(name, address, employeeId, designation) == false) {
-        return;
-    }
+    if (handleEdge(name, address, employeeId, designation) == false) return;
 
     // Check if employeeId already exists
     let isUniqueId = employees.every(employee => employee.employeeId !== employeeId);
@@ -62,6 +60,52 @@ function addEmployee() {
     togglePopup('addEmployeePopup');
 }
 
+// Function to edit employee details
+function editEmployee(index) {
+    let employee = employees[index];
+
+    // Set input fields with existing employee details
+    document.getElementById('editName').value = employee.name;
+    document.getElementById('editAddress').value = employee.address;
+    document.getElementById('editEmployeeId').value = employee.employeeId;
+    document.getElementById('editDesignation').value = employee.designation; 
+
+    closePopups(); // Close all other popups
+    togglePopup('editEmployeePopup'); // Display edit popup
+    editingIndex = index; // Save the index of the employee being edited
+} 
+
+// Function to save edited employee details
+function saveEditedEmployee() {
+    let name = document.getElementById('editName').value.trim();
+    let address = document.getElementById('editAddress').value.trim();
+    let employeeId = document.getElementById('editEmployeeId').value.trim();
+    let designation = document.getElementById('editDesignation').value.trim();
+
+    if (handleEdge(name, address, employeeId, designation) == false)return;    //handle Edge-Case  
+     
+    let isUniqueId = !employees.some((employee, index) => {  //handle duplicates employee ID
+        // Exclude the current employee being edited from the check
+        if (index !== editingIndex) {
+            return employee.employeeId === employeeId;
+        }
+        return false; // Skip the current employee being edited
+    }); 
+    if (!isUniqueId) {
+        showToast('Employee ID already exists! Please enter a unique ID.', "red");
+        return;
+    }  
+
+    // Update employee details
+    employees[editingIndex].name = name;
+    employees[editingIndex].address = address;
+    employees[editingIndex].employeeId = employeeId;
+    employees[editingIndex].designation = designation;
+
+    togglePopup('editEmployeePopup');    // Close edit popup 
+    showToast('Employee details updated successfully!', "green");  //Toast popup
+}
+
 // Function to toggle popups
 function togglePopup(popupId) {
     let popup = document.getElementById(popupId);
@@ -80,64 +124,11 @@ function viewEmployees() {
     let employeeList = document.getElementById('employeeList');
     employeeList.innerHTML = ''; // Clear previous list
     employees.forEach((employee, index) => {
-        let li = document.createElement('li');
-        li.innerHTML = `Name: ${employee.name}, Address: ${employee.address}, Employee ID: ${employee.employeeId}, Designation: ${employee.designation} <button onclick="editEmployee(${index})">Edit</button>`;
-        employeeList.appendChild(li);
+        let p = document.createElement('p');
+        p.innerHTML = `Name: ${employee.name}, Address: ${employee.address}, Employee ID: ${employee.employeeId}, Designation: ${employee.designation} <button onclick="editEmployee(${index})">Edit</button>`;
+        employeeList.appendChild(p);
     });
     togglePopup('viewEmployeePopup');
-}
-
-// Function to edit employee details
-function editEmployee(index) {
-    let employee = employees[index];
-
-    // Set input fields with existing employee details
-    document.getElementById('editName').value = employee.name;
-    document.getElementById('editAddress').value = employee.address;
-    document.getElementById('editEmployeeId').value = employee.employeeId;
-    document.getElementById('editDesignation').value = employee.designation;
-
-    // Check if employeeId already exists
-    let isUniqueId = employees.every(employee => employee.employeeId !== employeeId);
-    if (!isUniqueId) {
-        showToast('Employee ID already exists! Please enter a unique ID.', "red");
-        return;
-    }
-
-    closePopups(); // Close all other popups
-    togglePopup('editEmployeePopup'); // Display edit popup
-    editingIndex = index; // Save the index of the employee being edited
-}
-
-
-// Function to save edited employee details
-function saveEditedEmployee() {
-    let name = document.getElementById('editName').value;
-    let address = document.getElementById('editAddress').value;
-    let employeeId = document.getElementById('editEmployeeId').value;
-    let designation = document.getElementById('editDesignation').value;
-
-    if (handleEdge(name, address, employeeId, designation) == false) {   //handle Edge-Case 
-        return;
-    }
-
-    // Check if the edited employee ID already exists
-    let isUniqueId = employees.every((employee, index) => {
-        // Exclude the current employee being edited from the check
-        if (index !== editingIndex) {
-            return employee.employeeId !== employeeId;
-        }
-        return true;
-    });
-
-    // Update employee details
-    employees[editingIndex].name = name;
-    employees[editingIndex].address = address;
-    employees[editingIndex].employeeId = employeeId;
-    employees[editingIndex].designation = designation;
-
-    togglePopup('editEmployeePopup');    // Close edit popup 
-    showToast('Employee details updated successfully!', "green");
 }
 
 // Display toast messages
