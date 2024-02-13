@@ -7,6 +7,11 @@ body {
     color: white;
 }
 
+/* Hide Default scroll bar */
+::-webkit-scrollbar {
+    width: 0;
+    /* For Chrome, Safari, and Opera */
+}
 
 /* Remove outline on input focus */
 input:focus {
@@ -40,7 +45,6 @@ h1 {
 #employeeList button {
     background-color: #ffa31a;
     box-shadow: 0 0 10px rgb(145, 145, 145);
-
     border-radius: 5px;
     border: none;
     padding: 5px;
@@ -94,17 +98,32 @@ h1 {
     margin: auto;
 }
 
-
+/* Styling for the View Employee Popup */
 #viewEmployeePopup {
     width: 800px;
+    /* Set the width of the popup */
+    text-align: center;
+    /* Center-align text within the popup */
 }
 
-#viewEmployeePopup p {
-    background-color: rgb(87, 87, 87);
+/* Styling for the headers in the View Employee Popup and Add Employee Popup */
+#viewEmployeePopup h2,
+#addEmployeePopup h2 {
+    background-color: rgba(56, 56, 56, 0.878);
+    /* Background color for the header */
     padding: 10px;
+    /* Padding around the header text */
+    color: #ff8100;
+    /* Text color for the header */
     border-radius: 5px;
+    /* Border radius to round the corners of the header */
 }
 
+/* Additional styling specific to the Add Employee Popup header */
+#addEmployeePopup h2 {
+    background-color: #1b1b1b;
+    /* Background color specific to the Add Employee Popup */
+}
 
 /* Additional spacing for popup elements */
 .popup div {
@@ -134,6 +153,55 @@ h1 {
     font-size: larger;
     box-shadow: 0 0 10px rgb(59, 59, 59);
     font-weight: 900;
+}
+
+/* Table styling */
+#employeeTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Styling for table headers and data cells */
+#employeeTable th,
+#employeeTable td {
+    padding: 10px;
+    /* Padding around the content in cells */
+    text-align: left;
+    /* Align text to the left within cells */
+    border-bottom: 1px solid #ddd;
+    /* Bottom border for rows */
+}
+
+/* Styling for table headers */
+#employeeTable th {
+    background-color: #333;
+    /* Background color for header cells */
+    color: #fff;
+    /* Text color for header cells */
+}
+
+/* Styling for table row hover effect */
+#employeeTable tbody tr:hover {
+    background-color: #292929;
+    /* Background color on hover */
+}
+
+
+/* Button styling inside the table */
+#employeeTable button {
+    padding: 6px 10px;
+    background-color: #ffa31a;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #333;
+    font-weight: bold;
+}
+
+#employeeTable button:hover {
+    background-color: #ff8100;
 }
 
 /* Toast message styling */
@@ -211,5 +279,34 @@ h1 {
 @media (min-width: 1025px) {
     .container {
         max-width: 1200px;
+    }
+}
+
+
+/* Responsive table */
+@media (max-width: 768px) {
+    #employeeTable {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #employeeTable {
+        overflow-x: auto;
+        /* Change to auto to enable horizontal scrolling */
+        display: block;
+        /* Add block display to allow overflow */
+        white-space: nowrap;
+        /* Prevent wrapping of table cells */
+    }
+
+    #employeeTable th,
+    #employeeTable td {
+        font-size: 14px;
+    }
+
+    #employeeTable button {
+        font-size: 12px;
+        padding: 4px 8px;
     }
 }

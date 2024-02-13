@@ -60,12 +60,7 @@ let editingIndex = null; // Keep track of the index of the employee being edited
 
 //handle Edgecase separately
 function handleEdge(name, address, employeeId, designation) {
-    if (
-        name === "" ||
-        address === "" ||
-        employeeId === "" ||
-        designation === ""
-    ) {
+    if (name === "" || address === "" || employeeId === "" || designation === "") {
         showToast("Fill all details");
         return false;
     } else if (/\d/.test(name)) {
@@ -176,14 +171,22 @@ function closePopups() {
     document.querySelector(".overlay").style.display = "none";
 }
 
+
 // Function to view all employee details
 function viewEmployees() {
     let employeeList = document.getElementById("employeeList");
     employeeList.innerHTML = ""; // Clear previous list
+
     employees.forEach((employee, index) => {
-        let p = document.createElement("p");
-        p.innerHTML = `NAME: ${employee.name}, ADDRESS: ${employee.address}, EMPLOYEE ID: ${employee.employeeId}, DESIGNATION: ${employee.designation} <button onclick="editEmployee(${index})">Edit</button>`;
-        employeeList.appendChild(p);
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${employee.name}</td>
+            <td>${employee.address}</td>
+            <td>${employee.employeeId}</td>
+            <td>${employee.designation}</td>
+            <td><button onclick="editEmployee(${index})">Edit</button></td>
+        `;
+        employeeList.appendChild(row);
     });
     togglePopup("viewEmployeePopup");
 }
