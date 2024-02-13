@@ -1,16 +1,23 @@
 # Employee Management System
 
+
+
 ## 🚀 Functionality:
 
 1. **Add Employee**: Users can input details such as name, address, employee ID, and designation to add a new employee to the system.
 
-2. **Edit Employee**: Users have the ability to edit existing employee details, including their name, address, employee ID, and designation.
+2. **Edit Employee**: Users can edit existing employee details, including their name, address, employee ID, and designation.
 
 3. **View Employees**: Users can view a list of all employees currently stored in the system, along with their respective details.
 
 4. **Error Handling**: The system includes error handling to ensure that all required fields are filled out when adding or editing an employee. It also checks for duplicate employee IDs to maintain data integrity.
 
 5. **User Interface**: The system features a user-friendly interface with popups for adding and editing employees, making it easy for users to interact with the application.
+
+
+## 💻 Home Page
+<img src="Home_Page.png" width="1100px">
+
 
 ## 🔑 Key Points:
 
@@ -23,3 +30,6 @@
 4. **Data Validation**: The system validates user input to ensure that all required fields are filled out and that the data entered is valid. This helps prevent errors and maintain data integrity.
 
 5. **Modularity**: The code is organized into separate functions and modules, making it easy to understand and maintain. This modular approach improves code readability and reusability.
+
+## 👥 User list Dashboard 
+<img src="User_List.png" width="1100px">
