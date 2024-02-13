@@ -33,6 +33,19 @@ h1 {
     cursor: pointer;
     border-radius: 10px;
     margin-right: 10px;
+    font-weight: 500;
+}
+
+#employeeList button {
+    background-color: #ffa31a;
+    box-shadow: 0 0 10px rgb(145, 145, 145);
+
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    font-weight: 900;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 /* Button styling for 'Add Employee' button */
@@ -43,7 +56,10 @@ h1 {
     border: none;
     background-color: #ffa31a;
     cursor: pointer;
-    height: 30px;
+    height: 38px;
+    margin-top: 3px;
+    box-shadow: 0 0 1px rgb(255, 216, 88);
+    font-weight: 900;
 }
 
 /* Button hover effect */
@@ -66,6 +82,7 @@ h1 {
     position: fixed;
     top: 50%;
     left: 50%;
+    width: 330px;
     transform: translate(-50%, -50%);
     z-index: 999;
     border-radius: 5px;
@@ -73,9 +90,20 @@ h1 {
     padding: 20px;
     /* background-color: rgb(20, 15, 15); */
     background-color: #1b1b1b;
-
     margin: auto;
 }
+
+
+#viewEmployeePopup {
+    width: 600px;
+}
+
+#viewEmployeePopup p {
+    background-color: rgb(87, 87, 87);
+    padding: 10px;
+    border-radius: 5px;
+}
+
 
 /* Additional spacing for popup elements */
 .popup div {
@@ -100,7 +128,11 @@ h1 {
     cursor: pointer;
     padding: 2px 7px;
     border-radius: 10px;
-    background-color: grey;
+    background-color: #ffe58f;
+    color: #000000;
+    font-size: larger;
+    box-shadow: 0 0 10px rgb(59, 59, 59);
+    font-weight: 900;
 }
 
 /* Toast message styling */
@@ -144,5 +176,39 @@ h1 {
     to {
         bottom: 0;
         opacity: 0;
+    }
+}
+
+/* Media query for screens smaller than 768px (typical smartphones) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%; 
+    }
+
+    .popup {
+        width: 80%;
+        /* margin-left: 0 20px; */
+    }
+
+    #viewEmployeePopup {
+        width: 80%;
+    }
+}
+
+/* Media query for screens between 768px and 1024px (typical tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%; 
+    }
+}
+
+/* Media query for screens larger than 1024px (typical desktops) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
     }
 }

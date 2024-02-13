@@ -16,16 +16,14 @@
 
     <!-- Buttons for adding and viewing employees -->
     <div class="container">
-        <button class="btn" onclick="togglePopup('addEmployeePopup')">
-            Add Employee
-        </button>
-        <button class="btn" onclick="viewEmployees()">View Employees</button>
+        <button class="btn" id="togglePopup"> Add Employee </button>
+        <button class="btn" id="viewEmployees">View Employees</button>
     </div>
 
     <!-- Add Employee Popup -->
     <div id="addEmployeePopup" class="popup">
         <!-- Close button for the popup -->
-        <span class="close" onclick="togglePopup('addEmployeePopup')">&times;</span>
+        <span class="close" id="AddTogglePopup">&times;</span>
         <!-- Popup title -->
         <h2>Add Employee Detail</h2>
 
@@ -47,13 +45,13 @@
             <input type="text" id="designation" />
         </div>
         <!-- Button to add the employee -->
-        <button class="btn-AddEmployee" onclick="addEmployee()">Add Employee</button>
+        <button class="btn-AddEmployee" id="addEmployee">Add Employee</button>
     </div>
 
     <!-- Edit Employee Popup -->
     <div id="editEmployeePopup" class="popup">
         <!-- Close button for the popup -->
-        <span class="close" onclick="togglePopup('editEmployeePopup')">&times;</span>
+        <span class="close" id="EditEmployeePopup">&times;</span>
         <!-- Popup title -->
         <h2>Edit Employee Detail</h2>
 
@@ -75,13 +73,13 @@
             <input type="text" id="editDesignation" />
         </div>
         <!-- Button to save the edited employee details -->
-        <button class="btn-AddEmployee" onclick="saveEditedEmployee()">Save Changes</button>
+        <button class="btn-AddEmployee" id="saveEditedEmployee">Save Changes</button>
     </div>
 
     <!-- View Employee Popup -->
     <div id="viewEmployeePopup" class="popup">
         <!-- Close button for the popup -->
-        <span class="close" onclick="togglePopup('viewEmployeePopup')">&times;</span>
+        <span class="close" id="EditTogglePopup">&times;</span>
         <!-- Popup title -->
         <h2>View All Employee Details</h2>
         <!-- List to display all employee details -->
@@ -89,7 +87,7 @@
     </div>
 
     <!-- Overlay to close popups -->
-    <div class="overlay" onclick="closePopups()"></div>
+    <div class="overlay" id="overlayPopup"></div>
     <!-- Toast message display -->
     <div id="toast" class="toast"></div>
 
