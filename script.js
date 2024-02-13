@@ -72,6 +72,9 @@ function handleEdge(name, address, employeeId, designation) {
     } else if (isNaN(employeeId)) {
         showToast("Invalid EmployeeID: Employee ID should be a number");
         return false;
+    } else if (employeeId < 0) {  //check for negative value
+        showToast("Invalid EmployeeID: It should be greater then zero");
+        return false;
     }
     return true;
 }
@@ -202,4 +205,12 @@ function showToast(message, color = "red") {
         // Hide toast message after 3s
         toast.className = toast.className.replace("show", "");
     }, 3000);
-} 
+}
+
+
+// nameInput.addEventListener("keypress", function (event) {
+//     if (event.key === "Enter") {
+//         event.preventDefault(); // Prevent the default action of the "Enter" key
+//         document.getElementById("addEmployee").click(); // Trigger click event of "Add Employee" button
+//     }
+// });
