@@ -100,11 +100,11 @@ h1 {
 
 /* Styling for the View Employee Popup */
 #viewEmployeePopup {
-    width: 800px;
+    width: 1000px;
     /* Set the width of the popup */
     text-align: center;
     /* Center-align text within the popup */
-    height: 60%;
+    height: 70%;
     margin-top: 50px;
     overflow: auto;
 }
@@ -207,9 +207,12 @@ h1 {
 }
 
 #employeeTable {
-    overflow-x: auto;  /* Add horizontal scrollbar when needed */
-    max-width: 100%; /* Set a maximum width for the table */
-    table-layout: fixed; /* Ensure the table has a fixed layout */
+    overflow-x: auto;
+    /* Add horizontal scrollbar when needed */
+    max-width: 100%;
+    /* Set a maximum width for the table */
+    table-layout: fixed;
+    /* Ensure the table has a fixed layout */
 }
 
 /* Toast message styling */
